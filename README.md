@@ -17,7 +17,7 @@ Distribute the `!` over the disjunction, swap the resulting conjuncts, and we ge
 
 Not much better, but at least we have 2 separate conjuncts. Now we can focus on each part.
 
-First, `(a<<1|a>>~(~0<<1))`
+First, `(a<<!(a^a)|a>>~(~(a^a)<<!(a^a)))`
 
 `a^a = 0` and `!0` is just 1, so:
 ```c
