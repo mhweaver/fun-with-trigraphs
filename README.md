@@ -29,7 +29,7 @@ a<<1|a>>~(~0<<1)
 a<<1|a>>1
 ```
 
-Since we don't need to worry about values of `a` above 10000 the highest order bit will always be 0, so `a<<1` never shift off a 1. Since any non-zero value is evaluated is a true value, and we will never lose any non-zero bits in `a<<1` we can safely convert that to just `a`. And since `a>>1` can only cause us to lose non-zero bits, `a != 0` => `a>>1 != 0`, so we can simplify `a<<1|a>>1` to just:
+Since we don't need to worry about values of `a` above 10000 the highest order bit will always be 0, so `a<<1` will never shift off a 1. Any non-zero value is evaluated is a true value, and we will never lose any non-zero bits in `a<<1`, so we can safely convert that to just `a`. `a>>1` can only cause us to lose non-zero bits, therefore `a != 0` => `a>>1 != 0`, so we can simplify `a<<1|a>>1` to just:
 ```c
 a
 ```
