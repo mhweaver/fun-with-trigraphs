@@ -10,9 +10,9 @@ First, `??!` is a [trigraph in C](https://en.wikipedia.org/wiki/Digraphs_and_tri
 !(((a&-a)^a) || !(a<<!(a^a)|a>>~(~(a^a)<<!(a^a))))
 ```
 
-Distribute the `!` and we get a (slightly) more readable:
+Distribute the `!` over the disjunction, swap the resulting conjuncts, and we get a (slightly) more readable version:
 ```c
-!((a&-a)^a) && (a<<!(a^a)|a>>~(~(a^a)<<!(a^a)))
+ (a<<!(a^a)|a>>~(~(a^a)<<!(a^a))) && !((a&-a)^a)
 ```
 
 Not much better, but at least we have 2 separate conjuncts. Now we can focus on each part.
